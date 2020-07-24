@@ -20,23 +20,26 @@ If you do not have many submissions, it might be easiest to manually build this 
 
 ### Option 2: Run the `convert.py` script
 
-For this option, you download two CSV files from EasyChair and then run `convert.py`.  Download a submission table and the authors table using the Premium tab on EasyChair; deselect "include blank tables" and ensure that the header is selected:
+For this option, you download two CSV files from EasyChair and then run `convert.py`.  Download a submission table and the authors table using the Premium tab on EasyChair; deselect "include empty tables" and select "include table headers":
 
 ![Downloading screen shot](downloading.png)
 
 Next, you may need to manually change two lines in `convert.py`:
 
-- `decisions_to_track`: default values are to include `accept` and `probably accept` decisions. Modify the main function to include different decisions, e.g.
+- `decisions_to_track`: default values are to include `accept` and `probably accept` decisions. Modify the `main()` function to include different decisions, e.g.
 
 ```
 titles = get_titles(paper_csv_file,decisions_to_track = ['accept'])
 ```
 
-- `paper type`: default value is to set all submissions as `Full Paper`. Modify the main function to include a different type according to the ACM-accepted values, e.g.,
+- `paper type`: default value is to set all submissions as `Full Paper`. Modify the `main()` function to include a different type according to the ACM-accepted values, e.g.,
 
 ```
 write_output(titles,authors,output_file,paper_type='Poster')
 ```
+The following is a screenshot of the possible paper types from ACM's [General Instructions for Proceedings](https://www.acm.org/publications/gi-proceedings); note that papers of 5 pages in length or longer are considered Full Papers.
+
+![paper types](paper-types.png)
 
 ## Notes from previous chairs:
 
