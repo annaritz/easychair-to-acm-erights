@@ -43,6 +43,6 @@ The following is a screenshot of the possible paper types from ACM's [General In
 
 ## Notes from previous chairs:
 
-Mindi Shi and Yang Shen have been the Proceedings Chairs for numerous ACM-BCB conferences.  The script `convert.py` was initially developed by one of Yang Shen's students, Di Wu.  From that README document:
+Mindy Shi and Yang Shen have been the Proceedings Chairs for numerous ACM-BCB conferences.  The script `convert.py` was initially developed by one of Yang Shen's students, Di Wu.  From that README document:
 
 - If the outputted CSV file needs to be converted to xlsx, please use google excel sheet to open and download otherwise special characters may be wrong.
