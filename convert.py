@@ -21,7 +21,7 @@ def main(paper_csv_file, author_csv_file, output_file):
 	print('authors from %d accepted submisssions processed' % len(authors))
 
 	## TO MODIFY PAPER TYPE, use optional paper_type arguemnt, e.g.,
-	## write_output(titles,authors,output_file,paper_type='Poster')
+	##write_output(titles,authors,output_file,paper_type='Abstract')
 	write_output(titles,authors,output_file)
 	print('Wrote to %s' % (output_file))
 

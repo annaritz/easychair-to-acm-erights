@@ -1,8 +1,10 @@
 # easychair-to-acm-erights
 
-Scripts and instructions for converting ACM-BCB EasyChair submissions into ACM eRights metadata.  Workshop, poster, and highlight organizers must convert their metadata information into an XML or CSV file for uploading to ACM.  
+Scripts and instructions for converting ACM-BCB EasyChair submissions into ACM eRights metadata.  Chairs and organizers must convert their metadata information into an XML or CSV file for uploading to ACM.  
 
 ## 2020 ACM-BCB Instructions
+
+Anna will handle main conference papers, poster abstracts, and highlight abstracts.  For **Workshop Organizers**, follow these instructions.
 
 1. **Generate a CSV file** of author metadata.  From ACM's [General Instructions for Proceedings](https://www.acm.org/publications/gi-proceedings), this CSV includes paper type, affiliations, and emails.  Only one author gets this copyright notification - we have decided that the **first corresponding author** receives this info. See below for instructions about generating the CSV file.
 
