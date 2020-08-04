@@ -13,15 +13,15 @@ import sys
 def main(paper_csv_file, author_csv_file, output_file):
 
 	## TO MODIFY DECISIONS TO TRACK use optional decitions_to_track argument, e.g.,
-	## titles = get_titles(paper_csv_file,decisions_to_track = ['accept'])
-	titles = get_titles(paper_csv_file)
+	titles = get_titles(paper_csv_file,decisions_to_track = ['accept'])
+	#titles = get_titles(paper_csv_file)
 	print('%d accepted titles processed' % len(titles))
 
 	authors = get_authors(author_csv_file,titles.keys())
 	print('authors from %d accepted submisssions processed' % len(authors))
 
 	## TO MODIFY PAPER TYPE, use optional paper_type arguemnt, e.g.,
-	##write_output(titles,authors,output_file,paper_type='Abstract')
+	#write_output(titles,authors,output_file,paper_type='Abstract')
 	write_output(titles,authors,output_file)
 	print('Wrote to %s' % (output_file))
 
@@ -82,12 +82,14 @@ def get_authors(author_csv_file,paper_ids):
 				last_name = line[last_name_index].strip("\" ")
 				email = line[email_index].strip()
 				affiliation = line[affil_index].strip()
-				corresponding = line[corresponding_index].strip()
-
+				if line[corresponding_index].strip() == 'yes':
+					corresponding =  True
+				else:
+					corresponding = False
 				if paper_id not in authors:
 					authors[paper_id] = []  # tuple of (name+affil, email, corresponding)
 				## authors are in the table sorted by order list.
-				authors[paper_id].append(['%s %s:%s' % (first_name,last_name,affiliation),email,bool(corresponding)])
+				authors[paper_id].append(['%s %s:%s' % (first_name,last_name,affiliation),email,corresponding])
 	return authors
 
 '''
