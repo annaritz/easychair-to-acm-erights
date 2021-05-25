@@ -65,6 +65,6 @@ write_output(titles,authors,output_file,paper_type='Poster')
 
 ## Instructions from Previous Years
 
-[2020 ACM-BCB Instructions]()
+[2020 ACM-BCB Instructions](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2020-ACM-BCB)
 
 **Notes from previous chairs:**  Mindy Shi and Yang Shen have been the Proceedings Chairs for numerous ACM-BCB conferences prior to 2020.  The script `convert.py` was initially developed by one of Yang Shen's students, Di Wu.  From that README document: if the outputted CSV file needs to be converted to `.xlsx`, please use google excel sheet to open and download otherwise special characters may be wrong.
