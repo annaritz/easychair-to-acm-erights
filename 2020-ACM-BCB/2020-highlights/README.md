@@ -16,3 +16,18 @@ Pulling these columns from the authors CSV file: submission #,first name,last na
 authors from 11 accepted submissions processed
 Wrote to ACM-BCB-2020-eRights-highlights-metadata.csv
 ```
+
+### Formatting for web pages
+
+```
+python3 ../format-for-webpage.py submission.csv  author.csv ACM-BCB-2020-highlights.txt
+```
+
+### Notes
+
+Removed the following poster (retracted since it's a highlight):
+
+```
+Spencer Krieger, John Kececioglu
+Boosting the accuracy of protein secondary structure prediction through nearest neighbor search and method hybridization
+```

@@ -21,3 +21,9 @@ Wrote to ACM-BCB-2020-eRights-metadata.csv
 These author names were manually altered:
 
 - `Tobias Rubel Janssen --> Tobias Rubel` (member of Anna's group)
+
+### Formatting for web pages
+
+```
+python3 ../format-for-webpage.py ACM-BCB-2020-submission.csv  ACM-BCB-2020-author.csv ACM-BCB-2020-main-papers.txt
+```
