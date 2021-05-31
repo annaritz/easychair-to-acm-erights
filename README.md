@@ -47,19 +47,7 @@ Other notes from the instructions: _Be sure to include the correct section and a
 This current formatting for the ACM copyrights grid **does not include section or article sequence information.** This has to be done after the schedule is set - we need to return to this.
 
 ### Using `convert.py`
-The `convert.py` script takes the two downloaded files and generates the enhanced CSV. Next, you may need to manually change two lines in `convert.py`:
-
-- `decisions_to_track`: default values are to include `accept` and `probably accept` decisions. Modify the `main()` function to include different decisions, e.g.
-
-```
-titles = get_titles(paper_csv_file,decisions_to_track = ['accept'])
-```
-
-- `paper type`: default value is to set all submissions as `Full Paper`. Modify the `main()` function to include a different type according to the ACM-accepted values, e.g.,
-
-```
-write_output(titles,authors,output_file,paper_type='Poster')
-```
+The `convert.py` script takes the track number and the two downloaded files and generates the enhanced CSV. See the instructions in the sub-directories.
 
 3. **Send the CSV file to Conference Catalysts** (Kaylin Kolodziejczak, kkolodziejczak@conferencecatalysts.com). Kaylin and Conference Catalysts will upload the file, review the grid, and send automated notifications for authors.  They will also monitor copyright submission status on a weekly basis.
 
