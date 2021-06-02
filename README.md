@@ -47,7 +47,7 @@ Other notes from the instructions: _Be sure to include the correct section and a
 This current formatting for the ACM copyrights grid **does not include section or article sequence information.** This has to be done after the schedule is set - we need to return to this.
 
 ### Using `convert.py`
-The `convert.py` script takes the track number and the two downloaded files and generates the enhanced CSV. See the instructions in the sub-directories.
+The `convert.py` script takes the track number and the two downloaded files and generates the enhanced CSV. See the instructions in the [2021 ACM-BCB Subdirectory](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2021-ACM-BCB).
 
 3. **Send the CSV file to Conference Catalysts** (Kaylin Kolodziejczak, kkolodziejczak@conferencecatalysts.com). Kaylin and Conference Catalysts will upload the file, review the grid, and send automated notifications for authors.  They will also monitor copyright submission status on a weekly basis.
 
