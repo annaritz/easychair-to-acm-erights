@@ -104,7 +104,7 @@ Writes output according to ACM-specified CSV formats.
 https://www.acm.org/publications/gi-proceedings
 '''
 def write_output(titles,authors,output_file, paper_type):
-	event_id = 15767 # hard-coded for BCB '21
+	event_id = 11931 # hard-coded for BCB '21
 	# empty columns
 	prefix = ''
 	middle_name = ''
