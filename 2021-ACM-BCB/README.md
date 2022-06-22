@@ -8,10 +8,10 @@
 
 ## Posters Enhanced CSV
 
-Download the files from EasyChair (`submission.csv` and `author.csv`).  Get the posters (track 5).
+Download the files from EasyChair (`submission-full.csv` and `author.csv`).  Get the posters (track 5).
 
 ```
-python3 ../convert.py 5 submission.csv author.csv ACM-BCB-2021-posters.csv
+python3 ../convert.py 5 submission-full.csv author.csv ACM-BCB-2021-posters.csv
 ```
 
 Output:

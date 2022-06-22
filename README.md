@@ -42,17 +42,20 @@ Scripts and instructions for converting ACM-BCB EasyChair submissions into ACM e
 - end_page
 - article_seq_no
 
+Double-check accents and other diacritics that may have been changed in this conversion process.
+
 Other notes from the instructions: _Be sure to include the correct section and article sequence information in your XML or CSV file. If this data is not available upon initial file load, please reupload the file when the data becomes available._
 
 This current formatting for the ACM copyrights grid **does not include section or article sequence information.** This has to be done after the schedule is set - we need to return to this.
 
 ### Using `convert.py`
-The `convert.py` script takes the track number and the two downloaded files and generates the enhanced CSV. See the instructions in the [2021 ACM-BCB Subdirectory](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2021-ACM-BCB).
+The `convert.py` script takes the track number and the two downloaded files and generates the enhanced CSV. See the instructions in the [2022 ACM-BCB Subdirectory](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2022-ACM-BCB).
 
-3. **Send the CSV file to Conference Catalysts** (Kaylin Kolodziejczak, kkolodziejczak@conferencecatalysts.com). Kaylin and Conference Catalysts will upload the file, review the grid, and send automated notifications for authors.  They will also monitor copyright submission status on a weekly basis.
+3. **Send the CSV file to the Proceedings Chairs** (Anna Ritz, aritz@reed.edu or Lingling An, anling@arizona.edu). Anna and Lingling will upload the file, review the grid, and send automated notifications for authors.  They will also monitor copyright submission status on a daily basis.
 
 ## Instructions from Previous Years
 
 [2020 ACM-BCB Instructions](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2020-ACM-BCB)
+[2021 ACM-BCB Instructions](https://github.com/annaritz/easychair-to-acm-erights/tree/master/2021-ACM-BCB)
 
 **Notes from previous chairs:**  Mindy Shi and Yang Shen have been the Proceedings Chairs for numerous ACM-BCB conferences prior to 2020.  The script `convert.py` was initially developed by one of Yang Shen's students, Di Wu.  From that README document: if the outputted CSV file needs to be converted to `.xlsx`, please use google excel sheet to open and download otherwise special characters may be wrong.

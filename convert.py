@@ -10,16 +10,12 @@ import csv
 import re
 import sys
 
-def main(track_number, paper_csv_file, author_csv_file, output_file):
-	if track_number == '1':
-		paper_type = "Full Paper"
-	elif track_number == '5':
-		paper_type = "Poster"
-	else:
-		sys.exit('Error: track number',track_number,'not specified.')
+def main(paper_csv_file, author_csv_file, paper_type, ids, output_file):
+	if paper_type not in ["Full Paper", "Poster", "Short Paper"]:
+		sys.exit('Error: paper_type "%s" not acceptable.' % (paper_type))
 	decisions_to_track = ['accept']
 
-	titles = get_titles(paper_csv_file,track_number,decisions_to_track)
+	titles = get_titles(paper_csv_file,ids,decisions_to_track)
 	print('%d accepted titles processed' % len(titles))
 
 	authors = get_authors(author_csv_file,titles.keys())
@@ -35,32 +31,34 @@ Processes the paper CSV file, retaining paper id and title.
 Inputs: paper CSV filename, and an optional list of decisions to track.
 Returns: Dictionary keyed by paper ids with titles as values.
 '''
-def get_titles(paper_csv_file, track_number, decisions_to_track):
+def get_titles(paper_csv_file, ids, decisions_to_track):
 	titles  = {}
 	decision_counter = {d:set() for d in decisions_to_track}
 
 	paper_id_index = 0
-	track_number_index = 1
-	title_index = 3
-	decision_index = 9
+	title_index = 1
+	decision_index = 7
 	with open(paper_csv_file,'r',encoding='mac_roman') as tsvfile:
 		reader = csv.reader(tsvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 		header = next(reader)
 		print('Pulling these columns from the submissions CSV file: %s' % ','.join([header[i] for i in [paper_id_index,title_index,decision_index]]))
-		print('Checking that %s == %s' % (header[track_number_index],track_number))
 		for line in reader:
 			paper_id = line[paper_id_index]
-			track = line[track_number_index]
-			if track != track_number: # wrong track. Ignore
-				continue
-			title = line[title_index]
-			decision = line[decision_index]
-			if decision in decisions_to_track: ## add this submission
+			if paper_id in ids: # if this is an ID to collect...
+				title = line[title_index]
+				decision = line[decision_index]
+
+				# this ID should be in a decision to track...
+				assert decision in decisions_to_track
+
 				decision_counter[decision].add(paper_id)
 				titles[paper_id] = title
 
+		# make sure we've seen all IDs.
+		assert len(ids) == sum([len(decision_counter[k]) for k in decision_counter.keys()])
+
 	for d in decision_counter:
-		print('  found %d decisions of type "%s"' % (len(decision_counter[d]),d))
+		print('  found %d decisions of type %s' % (len(decision_counter[d]),d))
 
 	return titles
 
@@ -104,7 +102,8 @@ Writes output according to ACM-specified CSV formats.
 https://www.acm.org/publications/gi-proceedings
 '''
 def write_output(titles,authors,output_file, paper_type):
-	event_id = 11931 # hard-coded for BCB '21
+	event_id = 12711 # hard-coded for BCB '22
+
 	# empty columns
 	prefix = ''
 	middle_name = ''
@@ -128,7 +127,7 @@ def write_output(titles,authors,output_file, paper_type):
 	article_seq_no = ''
 	with open(output_file,'w+') as csvout:
 		writer = csv.writer(csvout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-		for paper_id in sorted(titles.keys()):
+		for paper_id in sorted(titles.keys(),key=int):
 			the_title = titles[paper_id]
 			for first_name,last_name,author_sequence_no,contact_author,email,institution,country in authors[paper_id]:
 				output = [event_id,paper_id,paper_type,the_title, \
@@ -143,6 +142,6 @@ def write_output(titles,authors,output_file, paper_type):
 	return
 
 if __name__ == '__main__':
-	if len(sys.argv) != 5:
-		sys.exit('usage: python3 convert.py <track> <submission.csv> <authors.csv> <outfile.csv>')
-	main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+	if len(sys.argv) != 6:
+		sys.exit('usage: python3 convert.py <submission.csv> <authors.csv> <paper-type> <ids> <outfile.csv>\n\tpaper-type is one of Poster, Full Paper, etc.\n\tids are comma delimited.')
+	main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4].split(','),sys.argv[5])
